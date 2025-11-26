@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-#logo0container img {
-    display: block;
-    margin: 0 auto;
-}
-
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -20,18 +15,29 @@ body {
 header {
     background-color: #333;
     color: white;
-    text-align: center;
     padding: 20px;
     border-radius: 8px;
 }
 
+.header-inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#logo0container img {
+    width: 120px;
+    height: auto;
+    display: block;
+}
+
 header h1 {
     font-size: 2.5em;
+    margin-bottom: 10px;
 }
 
 header p {
     font-size: 1.2em;
-    margin-top: 10px;
 }
 
 .content {
