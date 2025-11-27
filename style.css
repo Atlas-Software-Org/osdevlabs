@@ -82,64 +82,12 @@ a:focus {
   outline: 2px solid black;
 }
 
-#notice {
-    color: grey;
-    font-size: 10px;
-}
-
-hr {
-    width: 100%;
-    height: 1px;
-    margin: left;
-    padding: 0;
-    border: none;
-    border-style: dashed;
-    border-color: black;
-    border-width: 1px;
-    box-shadow: black;
-    opacity: 75%;
-}
-
-.struct_table {
-    border-collapse: collapse;
-    font-family: "Consolas", monospace;
-    font-size: 12px;
-    width: 100%;
-}
-
-.struct_table th,
-.struct_table td {
-    border: 1px solid black;
-    padding: 4px 6px;
-    text-align: center;
-}
-
-.struct_table th {
-    background-color: #f0f0f0;
-    font-weight: bold;
-}
-
-.struct_table td:first-child {
-    text-align: center;
-}
-
-.struct_table td:nth-child(2) {
-    text-align: left;
-}
-
-.struct_table tbody tr:nth-child(odd) {
-    background-color: white;
-}
-
-.struct_table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.bitwise_operation {
-    color: #333;
-    font-weight: bold;
-    background-color: #f9f9f9;
-    font-style: italic;
+#contacts-container {
+    width: 200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 footer {
