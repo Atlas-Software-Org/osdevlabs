@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootloaders</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div id="logo0container">
+                <img src="../../osdevlabs.png" width="200" height="200" alt="OSDEV Labs logo">
+            </div>
+    
+            <div class="header-text">
+                <h1>Welcome to the OSDEV Labs Wiki</h1>
+                <p>Your go-to place for OS development resources!</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="content">
+            <h2>Home</h2>
+            <a href="../../index.html">Home</a>
+        </section>
+        <section class="content">
+            <h2>Limine bootloader</h2>
+            <p>
+                <a href="https://codeberg.org/limine/limine">Limine source code (codeberg.org)</a>
+                <br><br>
+                Limine supports multiple architectures, such as IA-32, x86-64, aarch64, riscv64 and loongarch64.
+                <br><br>
+                Limine also supports multiple boot protocols, such as Linux, Limine, Multiboot 1 and 2, and chainloading.
+                <br><br>
+                Limine supports MBR, GPT, and unpartitioned medias.
+                <br><br>
+                Limine supports FAT12/16/32 filesystems, and ISO9660 for CDs and DVDs.
+                <br><br>
+                To get started with limine, clone the x86-64 template repository (C and CXX available) through the following URLs:
+                <br><br>
+                <a href="https://codeberg.org/limine/limine-c-template/">Limine x86-64 C template</a>
+                <br>
+                <a href="https://codeberg.org/limine/limine-cxx-template/">Limine x86-64 CXX template</a>
+            </p>
+        </section>
+        <section class="content">
+            <h2>GRUB</h2>
+            <p>
+                While GRUB doesn't boot directly to long mode (64-bit mode) you are still able to switch to long mode (64-bit) which is also not very difficult
+                <br><br>
+                Use 'grub-mkrescue' command to create an iso image with grub bootloader
+            </p>
+        </section>
+        <section class="content">
+            <h2>Writing your own bootloader (TUTORIAL)</h2>
+            <p>
+                <div id="notice">
+                    This tutorial is for 16-bit BIOS bootloaders
+                </div>
+
+                <h3>Dependencies</h3>
+                <div id="notice">
+                    Basic knowledge of 16-bit assembly
+                </div>
+
+                <br><br>
+
+                <a href="https://github.com/Atlas-Software-Org/osdevlabs/tutorials/bootloader.asm">Bootloader source code</a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 OSDEV Labs Wiki</p>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

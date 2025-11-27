@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootloaders</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div id="logo0container">
+                <img src="../../osdevlabs.png" width="200" height="200" alt="OSDEV Labs logo">
+            </div>
+    
+            <div class="header-text">
+                <h1>Welcome to the OSDEV Labs Wiki</h1>
+                <p>Your go-to place for OS development resources!</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="content">
+            <h2>Home</h2>
+            <a href="../../index.html">Home</a>
+        </section>
+        <section class="content">
+            <h2>The Global Descriptor Table (Explanation)</h2>
+            <p>
+                The global descriptor table (GDT) is mostly unused in long mode, except for the purpose of defining code segments, data segments, and a task state segment.
+                <br><br>
+                <h4>What's a code segment?</h4>
+                Code segment (CS) register is used to tell the CPU which entry in the GDT is the code segment entry (usually 0x08 for kernel code and 0x23 for user code (Segment | RPL))
+                <br>
+                In the GDT entry there is a base address of the segment (ignored in long mode)
+                <br>
+                a limit (also ignored in long mode)
+                <br>
+                and type bits, which tell the CPU whether the memory here is executable, readable, writeable, etc...
+                <br>
+                Then there is the privilege level (DPL), tells the CPU whether this code segment is a supervisor code segment or user code segment (Ring 0/Ring 3)
+                <br><br>
+                <h4>What's a data segment?</h4>
+                Data segment (DS) register marks the gdt entry as data entry, whether for supervisor or user, usually 0x10 for kernel data
+                <br><br>
+                <h4>What's a Task State Segment?</h4>
+                The task state segment (TSS) is used to hold information about IST (interrupt stack table) and RSP (stack pointer) when switching between user⟷supervisor modes
+            </p>
+        </section>
+        <section class="content">
+            <h2>Implementing a GDT</h2>
+            <p>
+                Coding a GDT is very easy, and almost all operating systems have one.
+                <br><br>
+                A gdt is essentially a table of gdt entries, where each entry is the following table:
+                <hr>
+                <table class="struct_table">
+                <caption>64-bit GDT Entry Layout</caption>
+                <thead>
+                    <tr>
+                    <th>Bits</th>
+                    <th>Name / Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>0-15</td>
+                    <td>Segment limit (ignored in long mode)</td>
+                    </tr>
+                    <tr>
+                    <td>16-39</td>
+                    <td>Base address (ignored in long mode)</td>
+                    </tr>
+                    <tr>
+                    <td>40-47</td>
+                    <td>Access byte (type, S-bit, DPL, present)</td>
+                    </tr>
+                    <tr>
+                    <td>48-51</td>
+                    <td>Segment limit (ignored in long mode)</td>
+                    </tr>
+                    <tr>
+                    <td>52-55</td>
+                    <td>Flags (G, D/B, L, AVL)</td>
+                    </tr>
+                    <tr>
+                    <td>56-63</td>
+                    <td>Base address (ignored in long mode)</td>
+                    </tr>
+                </tbody>
+                </table>
+                <br><hr>
+                Now with this GDT entry, you would make it about 6 times in an array if you are planning to support usermode, and 4 only if not
+                <br>
+                So thats how it's supposed to look like:
+                <br>
+                <table class="struct_table">
+                <caption>GDT</caption>
+                <thead>
+                    <tr>
+                    <th>Selector</th>
+                    <th>Entry type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>0x00 (1st)</td>
+                    <td>Null entry (MUST HAVE)</td>
+                    </tr>
+                    <tr>
+                    <td>0x08 (2nd) </td>
+                    <td>Kernel Code (MUST HAVE)</td>
+                    </tr>
+                    <tr>
+                    <td>0x10 (3rd) </td>
+                    <td>Kernel Data (MUST HAVE)</td>
+                    </tr>
+                    <tr>
+                    <td>0x18 (4th) (<span class="bitwise_operation">OR</span> 3 for DPL)</td>
+                    <td>User Data</td>
+                    </tr>
+                    <tr>
+                    <td>0x20 (5th) (<span class="bitwise_operation">OR</span> 3 for DPL)</td>
+                    <td>User Code</td>
+                    </tr>
+                    <tr>
+                    <td>0x28 (6th)</td>
+                    <td>TSS (MUST HAVE. If planning to add usermode)</td>
+                    </tr>
+                </tbody>
+                </table>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 OSDEV Labs Wiki</p>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

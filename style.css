@@ -59,6 +59,89 @@ header p {
     color: #555;
 }
 
+a {
+  color: bisque;
+  text-decoration: none;
+}
+
+a:visited {
+  color: bisque;
+}
+
+a:hover {
+  color: blanchedalmond;
+  text-decoration: none;
+}
+
+a:active {
+  color: cadetblue;
+  text-decoration: none;
+}
+
+a:focus {
+  outline: 2px solid black;
+}
+
+#notice {
+    color: grey;
+    font-size: 10px;
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    margin: left;
+    padding: 0;
+    border: none;
+    border-style: dashed;
+    border-color: black;
+    border-width: 1px;
+    box-shadow: black;
+    opacity: 75%;
+}
+
+.struct_table {
+    border-collapse: collapse;
+    font-family: "Consolas", monospace;
+    font-size: 12px;
+    width: 100%;
+}
+
+.struct_table th,
+.struct_table td {
+    border: 1px solid black;
+    padding: 4px 6px;
+    text-align: center;
+}
+
+.struct_table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.struct_table td:first-child {
+    text-align: center;
+}
+
+.struct_table td:nth-child(2) {
+    text-align: left;
+}
+
+.struct_table tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+.struct_table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.bitwise_operation {
+    color: #333;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    font-style: italic;
+}
+
 footer {
     margin-top: 40px;
     text-align: center;
