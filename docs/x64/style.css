@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#logo0container img {
+    width: 120px;
+    height: auto;
+    display: block;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+.content {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #0077cc;
+}
+
+.content p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+a {
+  color: bisque;
+  text-decoration: none;
+}
+
+a:visited {
+  color: bisque;
+}
+
+a:hover {
+  color: blanchedalmond;
+  text-decoration: none;
+}
+
+a:active {
+  color: cadetblue;
+  text-decoration: none;
+}
+
+a:focus {
+  outline: 2px solid black;
+}
+
+#notice {
+    color: grey;
+    font-size: 10px;
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    margin: left;
+    padding: 0;
+    border: none;
+    border-style: dashed;
+    border-color: black;
+    border-width: 1px;
+    box-shadow: black;
+    opacity: 75%;
+}
+
+.struct_table {
+    border-collapse: collapse;
+    font-family: "Consolas", monospace;
+    font-size: 12px;
+    width: 100%;
+}
+
+.struct_table th,
+.struct_table td {
+    border: 1px solid black;
+    padding: 4px 6px;
+    text-align: center;
+}
+
+.struct_table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.struct_table td:first-child {
+    text-align: center;
+}
+
+.struct_table td:nth-child(2) {
+    text-align: left;
+}
+
+.struct_table tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+.struct_table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.bitwise_operation {
+    color: #333;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    font-style: italic;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #777;
+}
